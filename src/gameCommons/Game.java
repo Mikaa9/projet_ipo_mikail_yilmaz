@@ -119,9 +119,12 @@ public class Game {
 				this.graphic.endGameScreen("PERDU Votre score : " + this.score);
 				return true;
 			}
-		} else if (!this.environment.isSafe(this.frog.getPosition())) {
-			this.graphic.endGameScreen("Game over ");
-			return true;
+		}
+		else {
+			if (!this.environment.isSafe(this.frog.getPosition())) {
+				this.graphic.endGameScreen("Game over ");
+				return true;
+			}
 		}
 		/*
 		if(this.environment.isSafe(this.frog.getPosition())) {
@@ -171,11 +174,6 @@ public class Game {
 			testWin();
 		}
 
-		new Timer(1000, new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				++Game.this.chrono;
-			}
-		});
 	}
 	
 }

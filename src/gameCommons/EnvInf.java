@@ -41,12 +41,11 @@ public class EnvInf extends Environment{
         int k = numberOfLanes.size();
         int i = 0;
         do {
-            i++;
             if (i >= k) {
                 return false;
             }
-
             l = numberOfLanes.get(i);
+            i++;
         } while(l.ord != c.ord);
 
         return l.isSafe(c);
@@ -55,12 +54,16 @@ public class EnvInf extends Environment{
     }
 
     public void update() {
-        Lane l;
+        /*Lane l;
         int k = numberOfLanes.size();
 
         for(int i = 0 ; i < k ; i++){
             l = numberOfLanes.get(i);
             l.update();
+        }
+        */
+        for (int i = 0; i < numberOfLanes.size(); i++) {
+            numberOfLanes.get(i).update();
         }
     }
 
